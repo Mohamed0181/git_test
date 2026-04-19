@@ -1,0 +1,9 @@
+.custom_header table thead >tr >th {
+background-color:#7BD3EA !important;
+}
+.custom_header table thead >tr >th:nth-child(2) {
+width:60px !important;
+}
+.custom_form{
+    background-image: url("bimg.png")
+}

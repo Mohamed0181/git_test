@@ -1,0 +1,95 @@
+<odoo>
+    <record id="property_report" model="ir.actions.report">
+        <field name="name">Property Report</field>
+        <field name="model">property</field>
+        <field name="report_type">qweb-html</field>
+        <field name="binding_model_id" ref="model_property"/>
+        <field name="binding_type">report</field>
+        <field name="report_name">real_estate.report_template</field>
+    </record>
+
+    <template id="report_template">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <t t-set="o" t-value="o"/>
+                    <style>
+                        h1.report-title {
+                            font-size: 24px;
+                            font-weight: bold;
+                            margin-bottom: 20px;
+                            text-align: center;
+                        }
+                        table.report-table {
+                            width: 100%;
+                            border-collapse: collapse;
+                            margin-bottom: 30px;
+                            font-size: 14px;
+                        }
+                        table.report-table th {
+                            background-color: #eeeeee;
+                            padding: 10px;
+                            text-align: left;
+                            font-size: 16px;
+                            border: 1px solid #ddd;
+                        }
+                        table.report-table td {
+                            padding: 8px;
+                            border: 1px solid #ddd;
+                        }
+                    </style>
+
+                    <div class="page">
+                        <h1 class="report-title">Property Report</h1>
+
+                        <table class="report-table">
+                            <thead>
+                                <tr>
+                                    <th colspan="4">Information</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Name</td>
+                                    <td><t t-esc="o.name"/></td>
+                                    <td>Postcode</td>
+                                    <td><t t-esc="o.postcode"/></td>
+                                </tr>
+                            </tbody>
+                            <thead>
+                                <tr>
+                                    <th colspan="4">Additional Information</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Owner</td>
+                                    <td><span t-field="o.owner_id"/></td>
+                                    <td>Phone</td>
+                                    <td><t t-esc="o.phone_id"/></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <table class="report-table">
+                            <thead>
+                                <tr>
+                                    <th>Description</th>
+                                    <th>Area (m²)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="o.property_line_ids" t-as="line">
+                                    <tr>
+                                        <td><t t-esc="line.description"/></td>
+                                        <td><t t-esc="line.area"/></td>
+                                    </tr>
+                                </t>
+                            </tbody>
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>
