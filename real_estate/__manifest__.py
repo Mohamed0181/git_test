@@ -1,5 +1,5 @@
 {
-    'name': 'Real Estate1',
+    'name': 'Real Estate2',
     'version': '1.1',
     'description': 'Learning odoo',
     'author': 'Mohamed Reyad',
