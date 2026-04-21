@@ -8,6 +8,7 @@
     'depends': ['base'],
     'data': [
         'security/ir.model.access.csv',
+        'view/saas_block_ui.xml',
     ],
     'auto_install': False,  # تم تغيير التثبيت يدوى مؤقت لحين الانتهاء اً
     'installable': True,
