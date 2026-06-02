@@ -10,7 +10,7 @@
         'security/ir.model.access.csv',
         'view/saas_block_ui.xml',
     ],
-    'auto_install': False,  # تم تغيير التثبيت يدوى مؤقت لحين الانتهاء اً
+    'auto_install': False,  
     'installable': True,
     'application': False,
 }
